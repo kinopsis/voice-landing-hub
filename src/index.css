@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +97,21 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Additional custom styles */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.shadow-soft {
+  @apply shadow-lg shadow-gray-200/50;
 }
