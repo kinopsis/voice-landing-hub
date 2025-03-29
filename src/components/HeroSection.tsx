@@ -15,35 +15,35 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-12 md:mb-0 md:pr-12">
             <div className="inline-flex items-center px-3 py-1.5 mb-6 rounded-full bg-white shadow-sm border border-gray-100">
-              <span className="mr-2 text-xs font-medium text-voice-purple">NEW</span>
-              <span className="text-xs">Voice AI for your business</span>
+              <span className="mr-2 text-xs font-medium text-voice-purple">NUEVO</span>
+              <span className="text-xs">IA de voz para tu negocio</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6">
-              Transform Customer Experience with{' '}
-              <span className="bg-clip-text text-transparent bg-card-gradient">AI Voice Agents</span>
+              Transforma la Experiencia del Cliente con{' '}
+              <span className="bg-clip-text text-transparent bg-card-gradient">Agentes de Voz IA</span>
             </h1>
             
             <p className="text-lg text-gray-600 mb-8 max-w-xl">
-              Create lifelike voice assistants that engage your customers with natural conversations, 24/7 availability, and seamless integration.
+              Crea asistentes de voz realistas que interactúan con tus clientes mediante conversaciones naturales, disponibilidad 24/7 e integración perfecta.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-voice-purple hover:bg-voice-purple/90 text-white px-8 py-6 rounded-lg font-medium text-lg">
-                Start Free Trial
+                Prueba Gratuita
               </Button>
               <Button variant="outline" className="border-voice-purple text-voice-purple hover:bg-voice-purple/10 px-8 py-6 rounded-lg font-medium text-lg">
-                View Demo
+                Ver Demo
               </Button>
             </div>
             
             <div className="mt-10 flex items-center text-sm text-gray-500">
               <div className="flex -space-x-2 mr-4">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" className="w-8 h-8 rounded-full border-2 border-white" />
-                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="User" className="w-8 h-8 rounded-full border-2 border-white" />
-                <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="User" className="w-8 h-8 rounded-full border-2 border-white" />
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Usuario" className="w-8 h-8 rounded-full border-2 border-white" />
+                <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Usuario" className="w-8 h-8 rounded-full border-2 border-white" />
+                <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Usuario" className="w-8 h-8 rounded-full border-2 border-white" />
               </div>
-              <p>Trusted by 300+ companies worldwide</p>
+              <p>Confiado por más de 300+ empresas en todo el mundo</p>
             </div>
           </div>
           
@@ -60,18 +60,18 @@ const HeroSection: React.FC = () => {
                     <Mic size={20} />
                   </div>
                   <div>
-                    <h3 className="font-medium">VoiceAgent Assistant</h3>
-                    <p className="text-sm text-gray-500">Online and ready</p>
+                    <h3 className="font-medium">Asistente AVOZIA</h3>
+                    <p className="text-sm text-gray-500">En línea y listo</p>
                   </div>
                 </div>
                 <div className="mt-4 bg-white rounded-lg p-3 shadow-sm">
-                  <p className="text-sm">Hello! I'm your AI voice assistant. How can I help you today?</p>
+                  <p className="text-sm">¡Hola! Soy tu asistente de voz IA. ¿En qué puedo ayudarte hoy?</p>
                 </div>
                 <div className="mt-3 bg-voice-purple/10 rounded-lg p-3 ml-auto max-w-[80%]">
-                  <p className="text-sm">I need help setting up my account.</p>
+                  <p className="text-sm">Necesito ayuda para configurar mi cuenta.</p>
                 </div>
                 <div className="mt-3 bg-white rounded-lg p-3 shadow-sm">
-                  <p className="text-sm">I'd be happy to help you set up your account! Let me guide you through the process step by step...</p>
+                  <p className="text-sm">¡Con gusto te ayudaré a configurar tu cuenta! Permíteme guiarte paso a paso...</p>
                 </div>
               </div>
               <div className="flex justify-between items-center">
@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
                     <BarChart3 size={16} className="text-voice-blue" />
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">Powered by VoiceAgent</div>
+                <div className="text-xs text-gray-400">Desarrollado por AVOZIA</div>
               </div>
             </div>
             <div className="absolute -z-10 top-6 left-6 right-6 bottom-6 bg-gradient-to-r from-voice-purple to-voice-blue rounded-xl blur-xl opacity-20"></div>
