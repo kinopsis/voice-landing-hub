@@ -18,6 +18,12 @@ const Navbar: React.FC = () => {
         <a href="#features" className="text-voice-gray-dark hover:text-voice-purple transition-colors font-medium">
           Características
         </a>
+        <a href="#calls" className="text-voice-gray-dark hover:text-voice-purple transition-colors font-medium">
+          Llamadas
+        </a>
+        <a href="#faq" className="text-voice-gray-dark hover:text-voice-purple transition-colors font-medium">
+          FAQ
+        </a>
         <a href="#contact" className="text-voice-gray-dark hover:text-voice-purple transition-colors font-medium">
           Contacto
         </a>
