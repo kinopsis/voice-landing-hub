@@ -9,10 +9,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <h3 className="text-2xl font-bold font-display bg-clip-text text-transparent bg-card-gradient mb-6">
-              VoiceAgent
+              AVOZIA
             </h3>
             <p className="text-gray-300 mb-6">
-              Transforming customer experiences with advanced AI voice technology.
+              Transformando experiencias de cliente con tecnología avanzada de voz IA.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
@@ -31,16 +31,16 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Company</h4>
+            <h4 className="text-lg font-semibold mb-6">Empresa</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Sobre Nosotros</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Carreras</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Press</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Prensa</a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-white transition-colors">Blog</a>
@@ -49,35 +49,35 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Resources</h4>
+            <h4 className="text-lg font-semibold mb-6">Recursos</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Documentation</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Documentación</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Help Center</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Centro de Ayuda</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">API Reference</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Referencia API</a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Community</a>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">Comunidad</a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6">Contacto</h4>
             <ul className="space-y-4">
               <li className="text-gray-300">
-                123 AI Street<br />
-                San Francisco, CA 94107
+                Calle IA 123<br />
+                Madrid, España 28001
               </li>
               <li>
-                <a href="mailto:hello@voiceagent.com" className="text-gray-300 hover:text-white transition-colors">hello@voiceagent.com</a>
+                <a href="mailto:hola@avozia.com" className="text-gray-300 hover:text-white transition-colors">hola@avozia.com</a>
               </li>
               <li>
-                <a href="tel:+15555555555" className="text-gray-300 hover:text-white transition-colors">+1 (555) 555-5555</a>
+                <a href="tel:+34915555555" className="text-gray-300 hover:text-white transition-colors">+34 91 555 55 55</a>
               </li>
             </ul>
           </div>
@@ -86,17 +86,17 @@ const Footer: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} VoiceAgent. All rights reserved.
+              &copy; {new Date().getFullYear()} AVOZIA. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Terms of Service
+                Términos de Servicio
               </a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Privacy Policy
+                Política de Privacidad
               </a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Cookie Policy
+                Política de Cookies
               </a>
             </div>
           </div>

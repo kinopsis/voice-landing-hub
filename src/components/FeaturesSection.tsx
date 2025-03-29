@@ -13,21 +13,21 @@ import {
 
 const FeaturesSection: React.FC = () => {
   const featureList = [
-    "Natural conversation flow",
-    "Emotion detection & response",
-    "Personalized interactions",
-    "Real-time learning",
-    "Seamless handoff to humans",
-    "Multilingual capabilities"
+    "Flujo de conversación natural",
+    "Detección y respuesta emocional",
+    "Interacciones personalizadas",
+    "Aprendizaje en tiempo real",
+    "Transferencia perfecta a humanos",
+    "Capacidades multilingües"
   ];
 
   return (
     <section id="features" className="py-20 px-4 md:px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Powerful Features</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Características Potentes</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Advanced capabilities built on cutting-edge AI technology
+            Capacidades avanzadas construidas sobre tecnología de IA de vanguardia
           </p>
         </div>
         
@@ -37,9 +37,9 @@ const FeaturesSection: React.FC = () => {
               <div className="w-12 h-12 bg-voice-purple/10 rounded-lg flex items-center justify-center text-voice-purple mb-4">
                 <BrainCircuit size={24} />
               </div>
-              <h3 className="text-2xl font-semibold font-display mb-3">Advanced Natural Language Processing</h3>
+              <h3 className="text-2xl font-semibold font-display mb-3">Procesamiento Avanzado de Lenguaje Natural</h3>
               <p className="text-gray-600">
-                Our AI voice agents understand context, detect sentiment, and maintain conversation history for truly natural interactions that feel human.
+                Nuestros agentes de voz con IA comprenden el contexto, detectan sentimientos y mantienen un historial de conversación para interacciones verdaderamente naturales que se sienten humanas.
               </p>
             </div>
             
@@ -47,9 +47,9 @@ const FeaturesSection: React.FC = () => {
               <div className="w-12 h-12 bg-voice-purple/10 rounded-lg flex items-center justify-center text-voice-purple mb-4">
                 <Workflow size={24} />
               </div>
-              <h3 className="text-2xl font-semibold font-display mb-3">Seamless Integration</h3>
+              <h3 className="text-2xl font-semibold font-display mb-3">Integración Perfecta</h3>
               <p className="text-gray-600">
-                Connect with your existing tools, CRM systems, and databases with our straightforward API and pre-built integrations.
+                Conecta con tus herramientas existentes, sistemas CRM y bases de datos con nuestra API directa e integraciones prediseñadas.
               </p>
             </div>
             
@@ -57,9 +57,9 @@ const FeaturesSection: React.FC = () => {
               <div className="w-12 h-12 bg-voice-purple/10 rounded-lg flex items-center justify-center text-voice-purple mb-4">
                 <LineChart size={24} />
               </div>
-              <h3 className="text-2xl font-semibold font-display mb-3">Detailed Analytics</h3>
+              <h3 className="text-2xl font-semibold font-display mb-3">Análisis Detallado</h3>
               <p className="text-gray-600">
-                Gain insights into customer interactions, common issues, and agent performance with comprehensive reporting tools.
+                Obtén información sobre las interacciones con los clientes, problemas comunes y rendimiento de los agentes con herramientas completas de informes.
               </p>
             </div>
             
@@ -76,7 +76,7 @@ const FeaturesSection: React.FC = () => {
             
             <div className="mt-10">
               <Button className="bg-voice-purple hover:bg-voice-purple/90 text-white px-6 py-5 rounded-lg font-medium">
-                Explore All Features
+                Explorar Todas las Características
               </Button>
             </div>
           </div>
@@ -88,16 +88,16 @@ const FeaturesSection: React.FC = () => {
                   <div className="w-12 h-12 bg-voice-purple/10 rounded-lg flex items-center justify-center text-voice-purple mb-4">
                     <Mic size={24} />
                   </div>
-                  <h3 className="font-semibold mb-2">Voice Cloning</h3>
-                  <p className="text-sm text-gray-600">Create custom voices that match your brand identity</p>
+                  <h3 className="font-semibold mb-2">Clonación de Voz</h3>
+                  <p className="text-sm text-gray-600">Crea voces personalizadas que coincidan con la identidad de tu marca</p>
                 </div>
                 
                 <div className="bg-white rounded-xl shadow-md p-6">
                   <div className="w-12 h-12 bg-voice-purple/10 rounded-lg flex items-center justify-center text-voice-purple mb-4">
                     <LayoutGrid size={24} />
                   </div>
-                  <h3 className="font-semibold mb-2">No-Code Builder</h3>
-                  <p className="text-sm text-gray-600">Design conversation flows without technical expertise</p>
+                  <h3 className="font-semibold mb-2">Constructor Sin Código</h3>
+                  <p className="text-sm text-gray-600">Diseña flujos de conversación sin experiencia técnica</p>
                 </div>
               </div>
               
@@ -106,15 +106,15 @@ const FeaturesSection: React.FC = () => {
                   <div className="w-12 h-12 bg-voice-purple/10 rounded-lg flex items-center justify-center text-voice-purple mb-4">
                     <Headphones size={24} />
                   </div>
-                  <h3 className="font-semibold mb-2">Multi-Channel</h3>
-                  <p className="text-sm text-gray-600">Deploy across phone, web, mobile, and messaging platforms</p>
+                  <h3 className="font-semibold mb-2">Multi-Canal</h3>
+                  <p className="text-sm text-gray-600">Implementa en teléfono, web, móvil y plataformas de mensajería</p>
                 </div>
                 
                 <div className="bg-gradient-to-r from-voice-purple to-voice-blue rounded-xl shadow-md p-6 text-white transform translate-y-8">
-                  <h3 className="font-semibold mb-2">Customizable & Flexible</h3>
-                  <p className="text-sm opacity-90">Tailor your voice agent to your exact business needs</p>
+                  <h3 className="font-semibold mb-2">Personalizable y Flexible</h3>
+                  <p className="text-sm opacity-90">Adapta tu agente de voz a tus necesidades empresariales exactas</p>
                   <Button variant="secondary" className="mt-4 bg-white text-voice-purple hover:bg-white/90">
-                    Learn More
+                    Saber Más
                   </Button>
                 </div>
               </div>

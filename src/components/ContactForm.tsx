@@ -27,8 +27,8 @@ const ContactForm: React.FC = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+        title: "¡Mensaje enviado!",
+        description: "Nos pondremos en contacto contigo lo antes posible.",
       });
       setIsSubmitting(false);
       setFormData({
@@ -45,73 +45,73 @@ const ContactForm: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">Ready to transform your customer experience?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">¿Listo para transformar la experiencia de tus clientes?</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Our team is here to help you implement AI voice agents that deliver real business results.
+              Nuestro equipo está aquí para ayudarte a implementar agentes de voz con IA que ofrezcan resultados reales para tu negocio.
             </p>
             
             <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Why contact us?</h3>
+              <h3 className="text-xl font-semibold mb-4">¿Por qué contactarnos?</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-voice-purple">
                     <CheckCircle2 size={20} />
                   </div>
-                  <p className="text-gray-700">Get a personalized demo tailored to your business needs</p>
+                  <p className="text-gray-700">Obtén una demo personalizada adaptada a las necesidades de tu negocio</p>
                 </div>
                 
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-voice-purple">
                     <CheckCircle2 size={20} />
                   </div>
-                  <p className="text-gray-700">Learn about flexible pricing plans for businesses of all sizes</p>
+                  <p className="text-gray-700">Conoce nuestros planes de precios flexibles para empresas de todos los tamaños</p>
                 </div>
                 
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-voice-purple">
                     <CheckCircle2 size={20} />
                   </div>
-                  <p className="text-gray-700">Discuss custom integration with your existing systems</p>
+                  <p className="text-gray-700">Discute la integración personalizada con tus sistemas existentes</p>
                 </div>
                 
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-voice-purple">
                     <CheckCircle2 size={20} />
                   </div>
-                  <p className="text-gray-700">Get expert advice on implementing AI voice solutions</p>
+                  <p className="text-gray-700">Recibe asesoramiento experto sobre la implementación de soluciones de voz con IA</p>
                 </div>
               </div>
             </div>
             
             <div className="bg-white rounded-xl p-6 border border-gray-100">
               <div className="flex items-center space-x-4 mb-4">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer Success" className="w-12 h-12 rounded-full" />
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Éxito del Cliente" className="w-12 h-12 rounded-full" />
                 <div>
-                  <h4 className="font-semibold">Sarah Johnson</h4>
-                  <p className="text-sm text-gray-600">Customer Success Manager</p>
+                  <h4 className="font-semibold">Sara Jiménez</h4>
+                  <p className="text-sm text-gray-600">Gerente de Éxito del Cliente</p>
                 </div>
               </div>
               <p className="text-gray-700 italic">
-                "We're committed to your success. Our team provides ongoing support and guidance to ensure you get the most from our voice AI technology."
+                "Estamos comprometidos con tu éxito. Nuestro equipo proporciona apoyo y orientación continuos para asegurar que obtengas el máximo de nuestra tecnología de voz con IA."
               </p>
             </div>
           </div>
           
           <div>
             <div className="bg-white rounded-xl shadow-md p-8">
-              <h3 className="text-2xl font-semibold font-display mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-semibold font-display mb-6">Ponte en Contacto</h3>
               <form onSubmit={handleSubmit}>
                 <div className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Name
+                      Tu Nombre
                     </label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Smith"
+                      placeholder="Juan Pérez"
                       required
                       className="w-full"
                     />
@@ -119,7 +119,7 @@ const ContactForm: React.FC = () => {
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
+                      Correo Electrónico
                     </label>
                     <Input
                       id="email"
@@ -127,7 +127,7 @@ const ContactForm: React.FC = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@company.com"
+                      placeholder="juan@empresa.com"
                       required
                       className="w-full"
                     />
@@ -135,28 +135,28 @@ const ContactForm: React.FC = () => {
                   
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                      Company Name
+                      Nombre de la Empresa
                     </label>
                     <Input
                       id="company"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Company Inc."
+                      placeholder="Empresa S.A."
                       className="w-full"
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      How can we help?
+                      ¿Cómo podemos ayudarte?
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your needs and how we can assist you..."
+                      placeholder="Cuéntanos sobre tus necesidades y cómo podemos ayudarte..."
                       rows={4}
                       required
                       className="w-full"
@@ -168,11 +168,11 @@ const ContactForm: React.FC = () => {
                     className="w-full bg-voice-purple hover:bg-voice-purple/90 text-white py-6 rounded-lg font-medium"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                   </Button>
                   
                   <p className="text-sm text-gray-500 text-center">
-                    We'll get back to you within 24 hours
+                    Te responderemos en menos de 24 horas
                   </p>
                 </div>
               </form>
