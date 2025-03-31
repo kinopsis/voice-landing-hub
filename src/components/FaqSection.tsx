@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const FaqSection: React.FC = () => {
   return (
@@ -67,6 +68,50 @@ const FaqSection: React.FC = () => {
             </AccordionTrigger>
             <AccordionContent className="text-gray-600">
               AVOZIA cumple con las regulaciones de protección de datos como GDPR y CCPA. Todos los datos de llamadas se cifran y almacenan de forma segura. Ofrecemos opciones para eliminar datos automáticamente tras su procesamiento y configurar políticas de retención personalizadas.
+            </AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="item-7">
+            <AccordionTrigger className="text-lg font-medium text-left">
+              Notas Adicionales sobre Latencia y Rendimiento
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-600">
+              <p className="mb-4">La latencia se mide desde la recepción de la consulta hasta la respuesta completa del agente de voz.</p>
+              
+              <ol className="list-decimal pl-5 mb-4 space-y-2">
+                <li>Los rangos pueden variar según el proveedor SIP y la ubicación geográfica del usuario final.</li>
+                <li>Enterprise incluye monitoreo proactivo para mantener la latencia dentro del SLA.</li>
+              </ol>
+              
+              <h4 className="font-semibold mb-2 mt-4">Diferenciación por Velocidad</h4>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="font-medium">Plan</TableHead>
+                      <TableHead className="font-medium">Caso de Uso Recomendado</TableHead>
+                      <TableHead className="font-medium">Ejemplo de Aplicación</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className="font-medium">Starter</TableCell>
+                      <TableCell>Respuestas automatizadas no urgentes</TableCell>
+                      <TableCell>Recordatorios de citas, encuestas simples</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Pymes</TableCell>
+                      <TableCell>Interacciones conversacionales</TableCell>
+                      <TableCell>Soporte técnico, ventas asistidas por IA</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Enterprise</TableCell>
+                      <TableCell>Operaciones críticas en tiempo real</TableCell>
+                      <TableCell>Telemedicina, transacciones financieras</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
