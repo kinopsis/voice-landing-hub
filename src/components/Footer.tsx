@@ -70,14 +70,13 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-6">Contacto</h4>
             <ul className="space-y-4">
               <li className="text-gray-300">
-                Calle IA 123<br />
-                Madrid, España 28001
+              Medellin, Colombia<br />
               </li>
               <li>
                 <a href="mailto:hola@avozia.com" className="text-gray-300 hover:text-white transition-colors">hola@avozia.com</a>
               </li>
               <li>
-                <a href="tel:+34915555555" className="text-gray-300 hover:text-white transition-colors">+34 91 555 55 55</a>
+                <a href="tel:+573174930481" className="text-gray-300 hover:text-white transition-colors">+34 91 555 55 55</a>
               </li>
             </ul>
           </div>
