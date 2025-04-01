@@ -36,6 +36,69 @@ export type Database = {
         }
         Relationships: []
       }
+      perfiles: {
+        Row: {
+          apellido: string
+          email: string
+          id: string
+          nombre: string
+          ultima_sesion: string | null
+        }
+        Insert: {
+          apellido: string
+          email: string
+          id: string
+          nombre: string
+          ultima_sesion?: string | null
+        }
+        Update: {
+          apellido?: string
+          email?: string
+          id?: string
+          nombre?: string
+          ultima_sesion?: string | null
+        }
+        Relationships: []
+      }
+      transcripciones: {
+        Row: {
+          asistente: string
+          calificacion: number
+          costo: number
+          duracion: string
+          estado_cita: string
+          fecha_hora: string
+          id: string
+          telefono: string
+          tipo_llamada: string
+          user_id: string | null
+        }
+        Insert: {
+          asistente: string
+          calificacion: number
+          costo: number
+          duracion: string
+          estado_cita: string
+          fecha_hora: string
+          id?: string
+          telefono: string
+          tipo_llamada: string
+          user_id?: string | null
+        }
+        Update: {
+          asistente?: string
+          calificacion?: number
+          costo?: number
+          duracion?: string
+          estado_cita?: string
+          fecha_hora?: string
+          id?: string
+          telefono?: string
+          tipo_llamada?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

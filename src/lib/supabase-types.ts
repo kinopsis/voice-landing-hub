@@ -1,6 +1,6 @@
 
-// Este archivo contiene tipos temporales para las tablas de Supabase
-// mientras se actualizan los tipos generados automáticamente
+// Este archivo contiene tipos para las tablas de Supabase
+// alineados con el esquema de la base de datos
 
 export interface ContactoInsert {
   telefono: string;
