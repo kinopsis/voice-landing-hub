@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
@@ -15,6 +14,16 @@ type AuthContextType = {
   signOut: () => Promise<void>;
   loading: boolean;
 };
+
+// Response types for type assertions
+type ProfileResponse = {
+  data: Perfil | null;
+  error: any;
+}
+
+type UpdateProfileResponse = {
+  error: any;
+}
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -59,19 +68,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchUserProfile = async (userId: string) => {
     try {
-      // Using type assertion to tell TypeScript this is valid
+      // Using an explicit cast with a defined return type
       const { data, error } = await supabase
         .from('perfiles')
         .select('*')
         .eq('id', userId)
-        .single() as any;
+        .single() as unknown as ProfileResponse;
 
       if (error) {
         console.error('Error fetching user profile:', error);
         return;
       }
 
-      setProfile(data as Perfil);
+      setProfile(data);
     } catch (error) {
       console.error('Error in fetchUserProfile:', error);
     }
@@ -79,11 +88,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const updateLastLogin = async (userId: string) => {
     try {
-      // Using type assertion to tell TypeScript this is valid
+      // Using an explicit cast with a defined return type
       const { error } = await supabase
         .from('perfiles')
         .update({ ultima_sesion: new Date().toISOString() })
-        .eq('id', userId) as any;
+        .eq('id', userId) as unknown as UpdateProfileResponse;
 
       if (error) {
         console.error('Error updating last login:', error);

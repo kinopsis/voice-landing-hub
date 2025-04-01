@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
@@ -23,15 +22,18 @@ const DashboardStats = () => {
       try {
         setLoading(true);
         
-        // Using type assertion to tell TypeScript this is valid
+        // Using an explicit cast with a defined return type
         const { data, error } = await supabase
           .from('transcripciones')
           .select('*')
-          .eq('user_id', user.id) as any;
+          .eq('user_id', user.id) as unknown as { 
+            data: Transcripcion[] | null;
+            error: any 
+          };
           
         if (error) throw error;
         
-        const transcripciones = data as Transcripcion[];
+        const transcripciones = data || [];
         
         if (transcripciones.length === 0) {
           setLoading(false);

@@ -16,6 +16,10 @@ interface AsistenteFilterProps {
   onChange: (asistente: string | undefined) => void;
 }
 
+type TranscripcionesResponse = {
+  asistente: string;
+}
+
 const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
   const [asistentes, setAsistentes] = useState<string[]>([]);
   const { user } = useAuth();
@@ -25,18 +29,23 @@ const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
 
     const fetchAsistentes = async () => {
       try {
-        // Using type assertion to tell TypeScript this is valid
+        // Using an explicit cast with a defined return type
         const { data, error } = await supabase
           .from('transcripciones')
           .select('asistente')
           .eq('user_id', user.id)
-          .order('asistente') as any;
+          .order('asistente') as unknown as { 
+            data: TranscripcionesResponse[] | null; 
+            error: any 
+          };
           
         if (error) throw error;
         
-        // Extract unique asistentes
-        const uniqueAsistentes = [...new Set(data.map((item: any) => item.asistente))];
-        setAsistentes(uniqueAsistentes);
+        if (data) {
+          // Extract unique asistentes with proper typing
+          const uniqueAsistentes = [...new Set(data.map(item => item.asistente))];
+          setAsistentes(uniqueAsistentes);
+        }
       } catch (err) {
         console.error('Error fetching asistentes:', err);
       }

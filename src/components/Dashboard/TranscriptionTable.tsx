@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Transcripcion } from '@/lib/types';
@@ -13,6 +12,11 @@ import { User, Phone, Calendar, Clock, DollarSign, Star } from 'lucide-react';
 interface TranscriptionTableProps {
   fecha: Date | undefined;
   asistente: string | undefined;
+}
+
+type TranscriptionResponse = {
+  data: Transcripcion[] | null;
+  error: any;
 }
 
 const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistente }) => {
@@ -30,11 +34,11 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
         setLoading(true);
         setError(null);
         
-        // Using type assertion to tell TypeScript this is valid
+        // Using an explicit cast with a defined return type
         let query = supabase
           .from('transcripciones')
           .select('*')
-          .eq('user_id', user.id) as any;
+          .eq('user_id', user.id);
         
         // Apply filters if set
         if (fecha) {
@@ -53,11 +57,11 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
           query = query.eq('asistente', asistente);
         }
         
-        const { data, error } = await query.order('fecha_hora', { ascending: false });
+        const response = await query.order('fecha_hora', { ascending: false }) as unknown as TranscriptionResponse;
         
-        if (error) throw error;
+        if (response.error) throw response.error;
         
-        setTranscripciones(data as Transcripcion[] || []);
+        setTranscripciones(response.data || []);
       } catch (err: any) {
         console.error('Error fetching transcripciones:', err);
         setError(err.message || 'Error al cargar las transcripciones');
