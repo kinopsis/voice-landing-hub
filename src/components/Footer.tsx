@@ -73,10 +73,10 @@ const Footer: React.FC = () => {
               Medellin, Colombia<br />
               </li>
               <li>
-                <a href="mailto:hola@avozia.com" className="text-gray-300 hover:text-white transition-colors">hola@avozia.com</a>
+                <a href="mailto:hola@avozia.com" className="text-gray-300 hover:text-white transition-colors">ventas@avozia.com</a>
               </li>
               <li>
-                <a href="tel:+573174930481" className="text-gray-300 hover:text-white transition-colors">+34 91 555 55 55</a>
+                <a href="tel:+573174930481" className="text-gray-300 hover:text-white transition-colors">+573174930481</a>
               </li>
             </ul>
           </div>
