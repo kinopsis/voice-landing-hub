@@ -22,14 +22,11 @@ const DashboardStats = () => {
       try {
         setLoading(true);
         
-        // Using an explicit cast with a defined return type
+        // Usando casting para evitar errores de tipos
         const { data, error } = await supabase
           .from('transcripciones')
           .select('*')
-          .eq('user_id', user.id) as unknown as { 
-            data: Transcripcion[] | null;
-            error: any 
-          };
+          .eq('user_id', user.id) as any;
           
         if (error) throw error;
         
@@ -44,7 +41,7 @@ const DashboardStats = () => {
         const totalLlamadas = transcripciones.length;
         
         // Calculate total duration in seconds from all durations
-        const totalDurationInSeconds = transcripciones.reduce((total, t) => {
+        const totalDurationInSeconds = transcripciones.reduce((total: number, t: Transcripcion) => {
           const parts = t.duracion.split(':');
           const hours = parseInt(parts[0]) || 0;
           const minutes = parseInt(parts[1]) || 0;
@@ -59,10 +56,10 @@ const DashboardStats = () => {
         const duracionPromedio = `${avgMinutes}m ${avgSeconds}s`;
         
         // Calculate total cost
-        const costoTotal = transcripciones.reduce((total, t) => total + t.costo, 0);
+        const costoTotal = transcripciones.reduce((total: number, t: Transcripcion) => total + t.costo, 0);
         
         // Calculate conversion rate (booked appointments / total calls)
-        const bookedAppointments = transcripciones.filter(t => t.estado_cita === 'Booked').length;
+        const bookedAppointments = transcripciones.filter((t: Transcripcion) => t.estado_cita === 'Booked').length;
         const conversionRate = (bookedAppointments / totalLlamadas) * 100;
         
         setStats({

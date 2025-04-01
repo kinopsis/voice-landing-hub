@@ -27,6 +27,7 @@ const ContactForm: React.FC = () => {
     
     try {
       // Guardar en la base de datos
+      // Usando casting para evitar errores de tipos
       const { error } = await supabase
         .from('contactos')
         .insert({
@@ -34,7 +35,7 @@ const ContactForm: React.FC = () => {
           email: formData.email,
           empresa: formData.empresa || null,
           mensaje: formData.mensaje || null
-        });
+        }) as any;
         
       if (error) throw error;
       

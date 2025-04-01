@@ -29,21 +29,18 @@ const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
 
     const fetchAsistentes = async () => {
       try {
-        // Using an explicit cast with a defined return type
+        // Usando casting para evitar errores de tipos
         const { data, error } = await supabase
           .from('transcripciones')
           .select('asistente')
           .eq('user_id', user.id)
-          .order('asistente') as unknown as { 
-            data: TranscripcionesResponse[] | null; 
-            error: any 
-          };
+          .order('asistente') as any;
           
         if (error) throw error;
         
         if (data) {
           // Extract unique asistentes with proper typing
-          const uniqueAsistentes = [...new Set(data.map(item => item.asistente))];
+          const uniqueAsistentes = [...new Set(data.map((item: TranscripcionesResponse) => item.asistente))];
           setAsistentes(uniqueAsistentes);
         }
       } catch (err) {

@@ -1,12 +1,12 @@
 
 import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-voice-dark-purple text-white py-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold font-display bg-clip-text text-transparent bg-card-gradient mb-6">
               AVOZIA
@@ -16,54 +16,12 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
                 <Linkedin size={20} />
               </a>
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Empresa</h4>
-            <ul className="space-y-4">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Sobre Nosotros</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Carreras</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Prensa</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Blog</a>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Recursos</h4>
-            <ul className="space-y-4">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Documentación</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Centro de Ayuda</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Referencia API</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">Comunidad</a>
-              </li>
-            </ul>
           </div>
           
           <div>
