@@ -11,13 +11,10 @@ import {
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { Transcripcion } from '@/lib/types';
+import { TranscripcionRow } from '@/lib/supabase-types';
 
 interface AsistenteFilterProps {
   onChange: (asistente: string | undefined) => void;
-}
-
-type TranscripcionesResponse = {
-  asistente: string;
 }
 
 const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
@@ -29,18 +26,17 @@ const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
 
     const fetchAsistentes = async () => {
       try {
-        // Usando casting para evitar errores de tipos
         const { data, error } = await supabase
           .from('transcripciones')
           .select('asistente')
           .eq('user_id', user.id)
-          .order('asistente') as any;
+          .order('asistente');
           
         if (error) throw error;
         
         if (data) {
           // Extract unique asistentes with proper typing
-          const uniqueAsistentes = [...new Set(data.map((item: TranscripcionesResponse) => item.asistente))];
+          const uniqueAsistentes = [...new Set(data.map((item: { asistente: string }) => item.asistente))];
           setAsistentes(uniqueAsistentes);
         }
       } catch (err) {
