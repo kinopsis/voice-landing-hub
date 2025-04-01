@@ -5,13 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { CheckCircle2 } from "lucide-react";
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    telefono: '',
     email: '',
-    company: '',
-    message: ''
+    empresa: '',
+    mensaje: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -20,24 +21,45 @@ const ContactForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Guardar en la base de datos
+      const { error } = await supabase
+        .from('contactos')
+        .insert({
+          telefono: formData.telefono,
+          email: formData.email,
+          empresa: formData.empresa || null,
+          mensaje: formData.mensaje || null
+        });
+        
+      if (error) throw error;
+      
       toast({
         title: "¡Mensaje enviado!",
         description: "Nos pondremos en contacto contigo lo antes posible.",
       });
-      setIsSubmitting(false);
+      
+      // Limpiar formulario
       setFormData({
-        name: '',
+        telefono: '',
         email: '',
-        company: '',
-        message: ''
+        empresa: '',
+        mensaje: ''
       });
-    }, 1500);
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      toast({
+        title: "Error al enviar",
+        description: "Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -103,15 +125,15 @@ const ContactForm: React.FC = () => {
               <form onSubmit={handleSubmit}>
                 <div className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Tu Nombre
+                    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">
+                      Teléfono
                     </label>
                     <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="telefono"
+                      name="telefono"
+                      value={formData.telefono}
                       onChange={handleChange}
-                      placeholder="Juan Pérez"
+                      placeholder="+34 600 123 456"
                       required
                       className="w-full"
                     />
@@ -134,13 +156,13 @@ const ContactForm: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="empresa" className="block text-sm font-medium text-gray-700 mb-1">
                       Nombre de la Empresa
                     </label>
                     <Input
-                      id="company"
-                      name="company"
-                      value={formData.company}
+                      id="empresa"
+                      name="empresa"
+                      value={formData.empresa}
                       onChange={handleChange}
                       placeholder="Empresa S.A."
                       className="w-full"
@@ -148,13 +170,13 @@ const ContactForm: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-1">
                       ¿Cómo podemos ayudarte?
                     </label>
                     <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
+                      id="mensaje"
+                      name="mensaje"
+                      value={formData.mensaje}
                       onChange={handleChange}
                       placeholder="Cuéntanos sobre tus necesidades y cómo podemos ayudarte..."
                       rows={4}

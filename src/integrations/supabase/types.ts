@@ -9,21 +9,30 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      dados_cliente: {
+      contactos: {
         Row: {
           created_at: string
-          id: number
-          telefone: string | null
+          email: string
+          empresa: string | null
+          id: string
+          mensaje: string | null
+          telefono: string
         }
         Insert: {
           created_at?: string
-          id?: number
-          telefone?: string | null
+          email: string
+          empresa?: string | null
+          id?: string
+          mensaje?: string | null
+          telefono: string
         }
         Update: {
           created_at?: string
-          id?: number
-          telefone?: string | null
+          email?: string
+          empresa?: string | null
+          id?: string
+          mensaje?: string | null
+          telefono?: string
         }
         Relationships: []
       }
