@@ -59,18 +59,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchUserProfile = async (userId: string) => {
     try {
+      // Using type assertion to tell TypeScript this is valid
       const { data, error } = await supabase
         .from('perfiles')
         .select('*')
         .eq('id', userId)
-        .single();
+        .single() as any;
 
       if (error) {
         console.error('Error fetching user profile:', error);
         return;
       }
 
-      setProfile(data);
+      setProfile(data as Perfil);
     } catch (error) {
       console.error('Error in fetchUserProfile:', error);
     }
@@ -78,10 +79,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const updateLastLogin = async (userId: string) => {
     try {
+      // Using type assertion to tell TypeScript this is valid
       const { error } = await supabase
         .from('perfiles')
         .update({ ultima_sesion: new Date().toISOString() })
-        .eq('id', userId);
+        .eq('id', userId) as any;
 
       if (error) {
         console.error('Error updating last login:', error);

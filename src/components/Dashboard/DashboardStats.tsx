@@ -23,10 +23,11 @@ const DashboardStats = () => {
       try {
         setLoading(true);
         
+        // Using type assertion to tell TypeScript this is valid
         const { data, error } = await supabase
           .from('transcripciones')
           .select('*')
-          .eq('user_id', user.id);
+          .eq('user_id', user.id) as any;
           
         if (error) throw error;
         

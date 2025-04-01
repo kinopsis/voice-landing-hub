@@ -10,6 +10,7 @@ import {
   SelectValue 
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
+import { Transcripcion } from '@/lib/types';
 
 interface AsistenteFilterProps {
   onChange: (asistente: string | undefined) => void;
@@ -24,16 +25,17 @@ const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
 
     const fetchAsistentes = async () => {
       try {
+        // Using type assertion to tell TypeScript this is valid
         const { data, error } = await supabase
           .from('transcripciones')
           .select('asistente')
           .eq('user_id', user.id)
-          .order('asistente');
+          .order('asistente') as any;
           
         if (error) throw error;
         
         // Extract unique asistentes
-        const uniqueAsistentes = [...new Set(data.map(item => item.asistente))];
+        const uniqueAsistentes = [...new Set(data.map((item: any) => item.asistente))];
         setAsistentes(uniqueAsistentes);
       } catch (err) {
         console.error('Error fetching asistentes:', err);

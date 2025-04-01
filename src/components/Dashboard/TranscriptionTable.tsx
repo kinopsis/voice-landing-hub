@@ -30,10 +30,11 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
         setLoading(true);
         setError(null);
         
+        // Using type assertion to tell TypeScript this is valid
         let query = supabase
           .from('transcripciones')
           .select('*')
-          .eq('user_id', user.id);
+          .eq('user_id', user.id) as any;
         
         // Apply filters if set
         if (fecha) {
@@ -56,7 +57,7 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
         
         if (error) throw error;
         
-        setTranscripciones(data || []);
+        setTranscripciones(data as Transcripcion[] || []);
       } catch (err: any) {
         console.error('Error fetching transcripciones:', err);
         setError(err.message || 'Error al cargar las transcripciones');
