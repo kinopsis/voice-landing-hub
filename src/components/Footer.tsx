@@ -2,7 +2,7 @@
 import React from 'react';
 import { Linkedin, Instagram } from "lucide-react";
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-voice-dark-purple text-white py-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-6xl mx-auto">
@@ -46,13 +46,13 @@ const Footer: React.FC = () => {
               &copy; {new Date().getFullYear()} AVOZIA. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="/terminos-servicio" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Términos de Servicio
               </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="/politica-privacidad" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Política de Privacidad
               </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="/politica-cookies" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Política de Cookies
               </a>
             </div>
