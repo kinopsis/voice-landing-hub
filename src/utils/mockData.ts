@@ -1,14 +1,19 @@
 
-import { supabase } from '@/integrations/supabase/client';
+import { supabase, handleSupabaseError } from '@/integrations/supabase/client';
 import { TranscripcionInsert } from '@/lib/supabase-types';
 import { format, subDays } from 'date-fns';
 import { toast } from 'sonner';
 
 // Genera datos de muestra para las transcripciones
 export const generateMockTranscriptions = async (userId: string) => {
-  if (!userId) return;
+  if (!userId) {
+    toast.error("Usuario no autenticado");
+    return;
+  }
 
   try {
+    console.log("Generating mock data for user ID:", userId);
+    
     // Primero verificamos si ya hay datos para este usuario
     const { data: existingData, error: checkError } = await supabase
       .from('transcripciones')
@@ -16,11 +21,15 @@ export const generateMockTranscriptions = async (userId: string) => {
       .eq('user_id', userId)
       .limit(1);
       
-    if (checkError) throw checkError;
+    if (checkError) {
+      console.error("Error checking existing data:", checkError);
+      throw checkError;
+    }
     
     // Si ya hay datos, no generamos nuevos
     if (existingData && existingData.length > 0) {
       console.log('Ya existen datos de muestra para este usuario');
+      toast.info('Ya existen datos de muestra para este usuario');
       return;
     }
     
@@ -105,16 +114,22 @@ export const generateMockTranscriptions = async (userId: string) => {
       }
     ];
     
+    console.log("Attempting to insert mock data:", mockData);
+    
     const { error } = await supabase
       .from('transcripciones')
       .insert(mockData);
       
-    if (error) throw error;
+    if (error) {
+      console.error('Error inserting mock data:', error);
+      throw error;
+    }
     
     toast.success('Datos de muestra generados correctamente');
+    console.log('Mock data generated successfully');
     
   } catch (error: any) {
     console.error('Error generando datos de muestra:', error);
-    toast.error('Error generando datos de muestra: ' + error.message);
+    toast.error('Error generando datos de muestra: ' + handleSupabaseError(error));
   }
 };
