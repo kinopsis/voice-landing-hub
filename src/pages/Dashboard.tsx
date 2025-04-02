@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import Sidebar from '@/components/Dashboard/Sidebar';
@@ -12,15 +12,18 @@ import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
-import { ChevronDown, Calendar as CalendarIcon, X } from 'lucide-react';
+import { ChevronDown, Calendar as CalendarIcon, X, Database } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { generateMockTranscriptions } from '@/utils/mockData';
+import { toast } from 'sonner';
 
 const Dashboard = () => {
   const { user, loading } = useAuth();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [fecha, setFecha] = useState<Date | undefined>(undefined);
   const [asistente, setAsistente] = useState<string | undefined>(undefined);
+  const [isGeneratingData, setIsGeneratingData] = useState(false);
 
   // Loading or not authenticated
   if (loading) {
@@ -34,6 +37,21 @@ const Dashboard = () => {
   const clearFilters = () => {
     setFecha(undefined);
     setAsistente(undefined);
+  };
+
+  const handleGenerateData = async () => {
+    if (!user) return;
+    
+    setIsGeneratingData(true);
+    try {
+      await generateMockTranscriptions(user.id);
+      toast.success('¡Datos de ejemplo generados!');
+    } catch (error) {
+      console.error('Error generating mock data:', error);
+      toast.error('Error al generar datos de ejemplo');
+    } finally {
+      setIsGeneratingData(false);
+    }
   };
 
   return (
@@ -58,8 +76,18 @@ const Dashboard = () => {
           <DashboardStats />
           
           <Card className="mb-6">
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-lg">Filtros</CardTitle>
+              <Button 
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-2"
+                onClick={handleGenerateData}
+                disabled={isGeneratingData}
+              >
+                <Database size={16} />
+                {isGeneratingData ? 'Generando...' : 'Generar datos de ejemplo'}
+              </Button>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

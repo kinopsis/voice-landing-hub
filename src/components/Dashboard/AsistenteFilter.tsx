@@ -36,7 +36,7 @@ const AsistenteFilter: React.FC<AsistenteFilterProps> = ({ onChange }) => {
         
         if (data) {
           // Extract unique asistentes with proper typing
-          const uniqueAsistentes = [...new Set(data.map((item: { asistente: string }) => item.asistente))];
+          const uniqueAsistentes = [...new Set(data.map((item: TranscripcionRow) => item.asistente))];
           setAsistentes(uniqueAsistentes);
         }
       } catch (err) {

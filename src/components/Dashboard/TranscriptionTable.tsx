@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Transcripcion } from '@/lib/types';
@@ -110,6 +111,21 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
       return `${seconds}s`;
     }
   };
+  
+  // Render star ratings
+  const renderStars = (rating: number) => {
+    return (
+      <div className="flex">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <Star
+            key={star}
+            size={16}
+            className={star <= rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"}
+          />
+        ))}
+      </div>
+    );
+  };
 
   if (loading) {
     return (
@@ -147,31 +163,33 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
         <TableHeader>
           <TableRow>
             <TableHead>Teléfono</TableHead>
-            <TableHead>Fecha</TableHead>
             <TableHead>Duración</TableHead>
             <TableHead>Tipo</TableHead>
             <TableHead>Estado</TableHead>
-            <TableHead>Asistente</TableHead>
             <TableHead>Calificación</TableHead>
-            <TableHead>Costo</TableHead>
+            <TableHead>Fecha y Hora</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {transcripciones.map((transcripcion) => (
-            <TableRow key={transcripcion.id}>
-              <TableCell className="font-medium flex items-center gap-2">
-                <Phone size={16} className="text-gray-500" />
+            <TableRow key={transcripcion.id} className="hover:bg-gray-50">
+              <TableCell className="font-medium">
                 {transcripcion.telefono}
               </TableCell>
-              <TableCell className="flex items-center gap-2">
-                <Calendar size={16} className="text-gray-500" />
-                {format(parseISO(transcripcion.fecha_hora), 'dd MMM yyyy, HH:mm', { locale: es })}
-              </TableCell>
-              <TableCell className="flex items-center gap-2">
-                <Clock size={16} className="text-gray-500" />
+              <TableCell>
                 {formatDuration(transcripcion.duracion)}
               </TableCell>
-              <TableCell>{transcripcion.tipo_llamada}</TableCell>
+              <TableCell>
+                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                  transcripcion.tipo_llamada === 'Appointment' 
+                    ? 'bg-blue-100 text-blue-800' 
+                    : transcripcion.tipo_llamada === 'Support'
+                    ? 'bg-purple-100 text-purple-800'
+                    : 'bg-gray-100 text-gray-800'
+                }`}>
+                  {transcripcion.tipo_llamada}
+                </span>
+              </TableCell>
               <TableCell>
                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                   transcripcion.estado_cita === 'Booked' 
@@ -183,17 +201,11 @@ const TranscriptionTable: React.FC<TranscriptionTableProps> = ({ fecha, asistent
                   {transcripcion.estado_cita}
                 </span>
               </TableCell>
-              <TableCell className="flex items-center gap-2">
-                <User size={16} className="text-gray-500" />
-                {transcripcion.asistente}
+              <TableCell>
+                {renderStars(transcripcion.calificacion)}
               </TableCell>
-              <TableCell className="flex items-center gap-1">
-                <Star size={16} className="text-yellow-500" />
-                {transcripcion.calificacion}/5
-              </TableCell>
-              <TableCell className="flex items-center gap-2">
-                <DollarSign size={16} className="text-gray-500" />
-                ${transcripcion.costo.toFixed(2)}
+              <TableCell>
+                {format(parseISO(transcripcion.fecha_hora), 'E, MMM d h:mm a', { locale: es })}
               </TableCell>
             </TableRow>
           ))}
