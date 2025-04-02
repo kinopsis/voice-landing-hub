@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import Sidebar from '@/components/Dashboard/Sidebar';
 import TopBar from '@/components/Dashboard/TopBar';
 import DashboardStats from '@/components/Dashboard/DashboardStats';
-import TranscriptionTable from '@/components/Dashboard/TranscriptionTable';
+import TranscriptionTable from '@/components/Dashboard/Transcriptions/TranscriptionTable';
 import AsistenteFilter from '@/components/Dashboard/AsistenteFilter';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
