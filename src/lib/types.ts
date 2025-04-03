@@ -1,4 +1,3 @@
-
 // Transcripcion type definition
 export interface Transcripcion {
   id: string;
@@ -19,4 +18,15 @@ export interface Perfil {
   apellido: string;
   email: string;
   ultima_sesion: string | null;
+}
+
+// Extend Window interface to include chatpilotConfig
+declare global {
+  interface Window {
+    chatpilotConfig?: {
+      chatbotId: string;
+      domain: string;
+      voiceModeOnly: boolean;
+    };
+  }
 }

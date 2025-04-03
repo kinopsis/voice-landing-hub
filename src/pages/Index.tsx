@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import UseCasesSection from '@/components/UseCasesSection';
@@ -11,9 +11,39 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  // Efecto para cargar el script de Appointify
+  useEffect(() => {
+    // Configuración del chatbot
+    window.chatpilotConfig = {
+      chatbotId: "80585ff662294f0c90a8c07da9d81181",
+      domain: "https://appointify.ai",
+      voiceModeOnly: true
+    };
+
+    // Crear y añadir el script
+    const script = document.createElement('script');
+    script.src = "https://appointify.ai/embed.min.js";
+    script.charset = "utf-8";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Limpiar al desmontar
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <div className="w-0 h-0 overflow-hidden">
+        {/* Iframe oculto para el chatbot */}
+        <iframe
+          title="Appointify Chatbot"
+          style={{ display: 'none' }}
+          aria-hidden="true"
+        />
+      </div>
       <HeroSection />
       <UseCasesSection />
       <FeaturesSection />
