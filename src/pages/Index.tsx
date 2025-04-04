@@ -39,7 +39,7 @@ const Index = () => {
       <div className="w-0 h-0 overflow-hidden">
         {/* Iframe oculto para el chatbot */}
         <iframe
-          title="Appointify Chatbot"
+          title="Avozia Chatbot"
           style={{ display: 'none' }}
           aria-hidden="true"
         />
