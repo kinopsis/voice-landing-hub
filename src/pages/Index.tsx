@@ -17,7 +17,7 @@ const Index = () => {
     window.chatpilotConfig = {
       chatbotId: "80585ff662294f0c90a8c07da9d81181",
       domain: "https://appointify.ai",
-      voiceModeOnly: true
+      
     };
 
     // Crear y añadir el script
